@@ -1,3 +1,8 @@
+## [0.1.1] - 2022-08-14
+
+fix:
+- unwanted transit to loading when `keepOldDataOnLoading: true` and check return loading
+
 ## [0.1.0] - 2022-08-14
 
 feat(initial):

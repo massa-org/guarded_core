@@ -44,6 +44,9 @@ class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetBase> {
     required int runId,
   }) {
     if (runId != currentRunId) return;
+    if (widget.keepOldDataOnLoading && result is GuardCheckResultLoading) {
+      return;
+    }
     this.result = result;
     if (!sync) {
       internalRebuild.add(null);

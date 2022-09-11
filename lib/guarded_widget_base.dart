@@ -72,7 +72,7 @@ class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetBase> {
   Widget _mapResult(GuardCheckResult result, BuildContext context) {
     return result.map(
       pass: (_) => widget.build(context, ref),
-      passWrap: (v) => v.build(child: widget.build(context, ref)),
+      wrap: (v) => v.builder(child: widget.build(context, ref)),
       loading: (_) => widget.guardedLoadingWidget,
       none: (_) => widget.guardedNoneWidget,
       widget: (v) => v.widget,

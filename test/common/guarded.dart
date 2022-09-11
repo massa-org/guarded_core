@@ -92,7 +92,7 @@ final resultToText = [
     'after_action'
   ],
   <dynamic>[
-    const GuardCheckResult.passWrap(_Wrapper.new),
+    const GuardCheckResult.wrap(_Wrapper.new),
     '_wrapper_',
     ['_wrapper_', 'pass']
   ],

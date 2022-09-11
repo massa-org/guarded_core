@@ -8,13 +8,14 @@ import 'common/guarded.dart';
 import 'common/guards.dart';
 
 void _test(
-  String text,
+  String testName,
   GuardCheckResult result,
-  String expectedText,
+  void Function() defaultCaseExpect,
+  void Function() caseExpect,
   GuardBase guard,
   bool keep,
 ) {
-  testWidgets(text, (tester) async {
+  testWidgets(testName, (tester) async {
     final controller = StreamController<GuardCheckResult>();
     await tester.pumpWidget(wrapRefGuards(
       [guard],
@@ -26,7 +27,7 @@ void _test(
 
     expect(find.text('loading'), findsOneWidget);
     await tester.pump();
-    expect(find.text(text), findsOneWidget);
+    defaultCaseExpect();
 
     controller.add(const GuardCheckResult.loading());
     // HACK await propogate value to provider
@@ -34,35 +35,48 @@ void _test(
 
     // first check for sync check complete and async start
     await tester.pump();
-    expect(find.text(expectedText), findsOneWidget);
+    caseExpect();
 
     // second check to await when async check is complete
     await tester.pump();
-    expect(find.text(expectedText), findsOneWidget);
+    caseExpect();
   });
 }
 
 void main() {
-  for (final r in resultToText) {
-    GuardCheckResult result = r[0];
-    String text = r[1];
-
+  casesRunner((testName, result, caseExpect) {
     group(
       'keep: true, sync',
-      () => _test(text, result, text, GuardWithSyncRefResult(), true),
+      () => _test(testName, result, caseExpect, caseExpect,
+          GuardWithSyncRefResult(), true),
     );
     group(
       'keep: true, async',
-      () => _test(text, result, text, GuardWithAsyncRefResult(), true),
+      () => _test(testName, result, caseExpect, caseExpect,
+          GuardWithAsyncRefResult(), true),
     );
 
     group(
       'keep: false, sync',
-      () => _test(text, result, 'loading', GuardWithSyncRefResult(), false),
+      () => _test(
+        testName,
+        result,
+        caseExpect,
+        () => expect(find.text('loading'), findsOneWidget),
+        GuardWithSyncRefResult(),
+        false,
+      ),
     );
     group(
       'keep: false, async',
-      () => _test(text, result, 'loading', GuardWithAsyncRefResult(), false),
+      () => _test(
+        testName,
+        result,
+        caseExpect,
+        () => expect(find.text('loading'), findsOneWidget),
+        GuardWithAsyncRefResult(),
+        false,
+      ),
     );
-  }
+  });
 }

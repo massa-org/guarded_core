@@ -91,7 +91,11 @@ final resultToText = [
     ),
     'after_action'
   ],
-  <dynamic>[const GuardCheckResult.passWrap(_Wrapper.new), '_wrapper_'],
+  <dynamic>[
+    const GuardCheckResult.passWrap(_Wrapper.new),
+    '_wrapper_',
+    ['_wrapper_', 'pass']
+  ],
 ];
 
 void casesRunner(
@@ -103,7 +107,17 @@ void casesRunner(
         runner) {
   for (final r in resultToText) {
     GuardCheckResult result = r[0];
-    String text = r[1];
-    runner(text, result, () => expect(find.text(text), findsOneWidget));
+    String testName = r[1];
+
+    List<String> expects = (r.length > 2) ? r[2] : [testName];
+    runner(
+      testName,
+      result,
+      () {
+        for (final test in expects) {
+          expect(find.text(test), findsOneWidget);
+        }
+      },
+    );
   }
 }

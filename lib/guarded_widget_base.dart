@@ -48,6 +48,7 @@ class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetBase> {
       return;
     }
     this.result = result;
+
     if (!sync) {
       internalRebuild.add(null);
     }
@@ -68,21 +69,27 @@ class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetBase> {
     );
   }
 
+  Widget _mapResult(GuardCheckResult result, BuildContext context) {
+    return result.map(
+      pass: (_) => widget.build(context, ref),
+      loading: (_) => widget.guardedLoadingWidget,
+      none: (_) => widget.guardedNoneWidget,
+      widget: (v) => v.widget,
+      action: (v) {
+        this.result = v.action(context, ref);
+        return _mapResult(this.result, context);
+      },
+      error: widget.guardedErrorBuilder,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     check();
 
     return StreamBuilder(
       stream: internalRebuild.stream,
-      builder: (context, _) {
-        return result.map(
-          pass: (_) => widget.build(context, ref),
-          loading: (_) => widget.guardedLoadingWidget,
-          none: (_) => widget.guardedNoneWidget,
-          widget: (v) => v.widget,
-          error: widget.guardedErrorBuilder,
-        );
-      },
+      builder: (context, _) => _mapResult(result, context),
     );
   }
 }

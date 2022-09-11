@@ -22,6 +22,9 @@ mixin _$GuardCheckResult {
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
     required TResult Function(dynamic error, StackTrace? stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +34,8 @@ mixin _$GuardCheckResult {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +45,8 @@ mixin _$GuardCheckResult {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) =>
@@ -50,6 +57,7 @@ mixin _$GuardCheckResult {
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
     required TResult Function(GuardCheckResultError value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +67,7 @@ mixin _$GuardCheckResult {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +77,7 @@ mixin _$GuardCheckResult {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
     required TResult orElse(),
   }) =>
@@ -136,6 +146,9 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
     required TResult Function(dynamic error, StackTrace? stackTrace) error,
   }) {
     return pass();
@@ -148,6 +161,8 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
   }) {
     return pass?.call();
@@ -160,6 +175,8 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -176,6 +193,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
     required TResult Function(GuardCheckResultError value) error,
   }) {
     return pass(this);
@@ -188,6 +206,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
   }) {
     return pass?.call(this);
@@ -200,6 +219,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
     required TResult orElse(),
   }) {
@@ -262,6 +282,9 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
     required TResult Function(dynamic error, StackTrace? stackTrace) error,
   }) {
     return loading();
@@ -274,6 +297,8 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
   }) {
     return loading?.call();
@@ -286,6 +311,8 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -302,6 +329,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
     required TResult Function(GuardCheckResultError value) error,
   }) {
     return loading(this);
@@ -314,6 +342,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
   }) {
     return loading?.call(this);
@@ -326,6 +355,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
     required TResult orElse(),
   }) {
@@ -410,6 +440,9 @@ class _$_WidgetResult extends _WidgetResult {
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
     required TResult Function(dynamic error, StackTrace? stackTrace) error,
   }) {
     return widget(this.widget);
@@ -422,6 +455,8 @@ class _$_WidgetResult extends _WidgetResult {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
   }) {
     return widget?.call(this.widget);
@@ -434,6 +469,8 @@ class _$_WidgetResult extends _WidgetResult {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -450,6 +487,7 @@ class _$_WidgetResult extends _WidgetResult {
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
     required TResult Function(GuardCheckResultError value) error,
   }) {
     return widget(this);
@@ -462,6 +500,7 @@ class _$_WidgetResult extends _WidgetResult {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
   }) {
     return widget?.call(this);
@@ -474,6 +513,7 @@ class _$_WidgetResult extends _WidgetResult {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
     required TResult orElse(),
   }) {
@@ -539,6 +579,9 @@ class _$_NoneResult extends _NoneResult {
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
     required TResult Function(dynamic error, StackTrace? stackTrace) error,
   }) {
     return none();
@@ -551,6 +594,8 @@ class _$_NoneResult extends _NoneResult {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
   }) {
     return none?.call();
@@ -563,6 +608,8 @@ class _$_NoneResult extends _NoneResult {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -579,6 +626,7 @@ class _$_NoneResult extends _NoneResult {
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
     required TResult Function(GuardCheckResultError value) error,
   }) {
     return none(this);
@@ -591,6 +639,7 @@ class _$_NoneResult extends _NoneResult {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
   }) {
     return none?.call(this);
@@ -603,6 +652,7 @@ class _$_NoneResult extends _NoneResult {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
     required TResult orElse(),
   }) {
@@ -616,6 +666,170 @@ class _$_NoneResult extends _NoneResult {
 abstract class _NoneResult extends GuardCheckResult {
   const factory _NoneResult() = _$_NoneResult;
   const _NoneResult._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ActionResultCopyWith<$Res> {
+  factory _$$_ActionResultCopyWith(
+          _$_ActionResult value, $Res Function(_$_ActionResult) then) =
+      __$$_ActionResultCopyWithImpl<$Res>;
+  $Res call({GuardCheckResult Function(BuildContext, WidgetRef) action});
+}
+
+/// @nodoc
+class __$$_ActionResultCopyWithImpl<$Res>
+    extends _$GuardCheckResultCopyWithImpl<$Res>
+    implements _$$_ActionResultCopyWith<$Res> {
+  __$$_ActionResultCopyWithImpl(
+      _$_ActionResult _value, $Res Function(_$_ActionResult) _then)
+      : super(_value, (v) => _then(v as _$_ActionResult));
+
+  @override
+  _$_ActionResult get _value => super._value as _$_ActionResult;
+
+  @override
+  $Res call({
+    Object? action = freezed,
+  }) {
+    return _then(_$_ActionResult(
+      action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as GuardCheckResult Function(BuildContext, WidgetRef),
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ActionResult extends _ActionResult {
+  const _$_ActionResult(this.action) : super._();
+
+  @override
+  final GuardCheckResult Function(BuildContext, WidgetRef) action;
+
+  @override
+  String toString() {
+    return 'GuardCheckResult.action(action: $action)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ActionResult &&
+            (identical(other.action, action) || other.action == action));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, action);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ActionResultCopyWith<_$_ActionResult> get copyWith =>
+      __$$_ActionResultCopyWithImpl<_$_ActionResult>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pass,
+    required TResult Function() loading,
+    required TResult Function(Widget widget) widget,
+    required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
+    required TResult Function(dynamic error, StackTrace? stackTrace) error,
+  }) {
+    return action(this.action);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pass,
+    TResult Function()? loading,
+    TResult Function(Widget widget)? widget,
+    TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
+    TResult Function(dynamic error, StackTrace? stackTrace)? error,
+  }) {
+    return action?.call(this.action);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pass,
+    TResult Function()? loading,
+    TResult Function(Widget widget)? widget,
+    TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
+    TResult Function(dynamic error, StackTrace? stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (action != null) {
+      return action(this.action);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(GuardCheckResultLoading value) loading,
+    required TResult Function(_WidgetResult value) widget,
+    required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
+    required TResult Function(GuardCheckResultError value) error,
+  }) {
+    return action(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(GuardCheckResultLoading value)? loading,
+    TResult Function(_WidgetResult value)? widget,
+    TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
+    TResult Function(GuardCheckResultError value)? error,
+  }) {
+    return action?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(GuardCheckResultLoading value)? loading,
+    TResult Function(_WidgetResult value)? widget,
+    TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
+    TResult Function(GuardCheckResultError value)? error,
+    required TResult orElse(),
+  }) {
+    if (action != null) {
+      return action(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ActionResult extends GuardCheckResult {
+  const factory _ActionResult(
+          final GuardCheckResult Function(BuildContext, WidgetRef) action) =
+      _$_ActionResult;
+  const _ActionResult._() : super._();
+
+  GuardCheckResult Function(BuildContext, WidgetRef) get action;
+  @JsonKey(ignore: true)
+  _$$_ActionResultCopyWith<_$_ActionResult> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -699,6 +913,9 @@ class _$GuardCheckResultError extends GuardCheckResultError {
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
     required TResult Function(dynamic error, StackTrace? stackTrace) error,
   }) {
     return error(this.error, stackTrace);
@@ -711,6 +928,8 @@ class _$GuardCheckResultError extends GuardCheckResultError {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
   }) {
     return error?.call(this.error, stackTrace);
@@ -723,6 +942,8 @@ class _$GuardCheckResultError extends GuardCheckResultError {
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
     TResult Function(dynamic error, StackTrace? stackTrace)? error,
     required TResult orElse(),
   }) {
@@ -739,6 +960,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
     required TResult Function(GuardCheckResultError value) error,
   }) {
     return error(this);
@@ -751,6 +973,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
   }) {
     return error?.call(this);
@@ -763,6 +986,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
     TResult Function(GuardCheckResultError value)? error,
     required TResult orElse(),
   }) {

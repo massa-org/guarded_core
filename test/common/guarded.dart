@@ -65,4 +65,10 @@ final resultToText = [
   <dynamic>[const GuardCheckResult.none(), 'none'],
   <dynamic>[const GuardCheckResult.error('error'), 'error'],
   <dynamic>[const GuardCheckResult.widget(Text('widget')), 'widget'],
+  <dynamic>[
+    GuardCheckResult.action(
+      (_, __) => const GuardCheckResult.widget(Text('after_action')),
+    ),
+    'after_action'
+  ],
 ];

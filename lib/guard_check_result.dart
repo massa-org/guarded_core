@@ -9,6 +9,10 @@ abstract class GuardCheckResult implements _$GuardCheckResult {
   const GuardCheckResult._();
 
   const factory GuardCheckResult.pass() = GuardCheckResultPass;
+  // allow to wrap guarded widget into something
+  const factory GuardCheckResult.passWrap(
+    Widget Function({required Widget child}) build,
+  ) = _GuardCheckResultPassWrap;
 
   const factory GuardCheckResult.loading() = GuardCheckResultLoading;
 

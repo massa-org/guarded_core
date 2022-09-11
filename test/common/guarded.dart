@@ -59,6 +59,23 @@ Widget wrapRefGuards(
   ));
 }
 
+class _Wrapper extends StatelessWidget {
+  const _Wrapper({Key? key, required this.child}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text('_wrapper_'),
+        child,
+      ],
+    );
+  }
+}
+
 final resultToText = [
   <dynamic>[const GuardCheckResult.loading(), 'loading'],
   <dynamic>[const GuardCheckResult.pass(), 'pass'],
@@ -71,4 +88,5 @@ final resultToText = [
     ),
     'after_action'
   ],
+  <dynamic>[const GuardCheckResult.passWrap(_Wrapper.new), '_wrapper_'],
 ];

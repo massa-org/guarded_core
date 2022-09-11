@@ -2,6 +2,7 @@
 
 feat: 
 - add action check result - that aplies on next build only if guarded is still mounted
+- add wrap check result - that allow to wrap passing result widget
 
 ## [0.1.1] - 2022-08-14
 

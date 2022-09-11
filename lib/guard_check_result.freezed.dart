@@ -19,6 +19,8 @@ mixin _$GuardCheckResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -31,6 +33,7 @@ mixin _$GuardCheckResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -42,6 +45,7 @@ mixin _$GuardCheckResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -54,6 +58,7 @@ mixin _$GuardCheckResult {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -64,6 +69,7 @@ mixin _$GuardCheckResult {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -74,6 +80,7 @@ mixin _$GuardCheckResult {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -143,6 +150,8 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -158,6 +167,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -172,6 +182,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -190,6 +201,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -203,6 +215,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -216,6 +229,7 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -233,6 +247,180 @@ class _$GuardCheckResultPass extends GuardCheckResultPass {
 abstract class GuardCheckResultPass extends GuardCheckResult {
   const factory GuardCheckResultPass() = _$GuardCheckResultPass;
   const GuardCheckResultPass._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_GuardCheckResultPassWrapCopyWith<$Res> {
+  factory _$$_GuardCheckResultPassWrapCopyWith(
+          _$_GuardCheckResultPassWrap value,
+          $Res Function(_$_GuardCheckResultPassWrap) then) =
+      __$$_GuardCheckResultPassWrapCopyWithImpl<$Res>;
+  $Res call({Widget Function({required Widget child}) build});
+}
+
+/// @nodoc
+class __$$_GuardCheckResultPassWrapCopyWithImpl<$Res>
+    extends _$GuardCheckResultCopyWithImpl<$Res>
+    implements _$$_GuardCheckResultPassWrapCopyWith<$Res> {
+  __$$_GuardCheckResultPassWrapCopyWithImpl(_$_GuardCheckResultPassWrap _value,
+      $Res Function(_$_GuardCheckResultPassWrap) _then)
+      : super(_value, (v) => _then(v as _$_GuardCheckResultPassWrap));
+
+  @override
+  _$_GuardCheckResultPassWrap get _value =>
+      super._value as _$_GuardCheckResultPassWrap;
+
+  @override
+  $Res call({
+    Object? build = freezed,
+  }) {
+    return _then(_$_GuardCheckResultPassWrap(
+      build == freezed
+          ? _value.build
+          : build // ignore: cast_nullable_to_non_nullable
+              as Widget Function({required Widget child}),
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GuardCheckResultPassWrap extends _GuardCheckResultPassWrap {
+  const _$_GuardCheckResultPassWrap(this.build) : super._();
+
+  @override
+  final Widget Function({required Widget child}) build;
+
+  @override
+  String toString() {
+    return 'GuardCheckResult.passWrap(build: $build)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GuardCheckResultPassWrap &&
+            (identical(other.build, build) || other.build == build));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, build);
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_GuardCheckResultPassWrapCopyWith<_$_GuardCheckResultPassWrap>
+      get copyWith => __$$_GuardCheckResultPassWrapCopyWithImpl<
+          _$_GuardCheckResultPassWrap>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
+    required TResult Function() loading,
+    required TResult Function(Widget widget) widget,
+    required TResult Function() none,
+    required TResult Function(
+            GuardCheckResult Function(BuildContext, WidgetRef) action)
+        action,
+    required TResult Function(dynamic error, StackTrace? stackTrace) error,
+  }) {
+    return passWrap(build);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
+    TResult Function()? loading,
+    TResult Function(Widget widget)? widget,
+    TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
+    TResult Function(dynamic error, StackTrace? stackTrace)? error,
+  }) {
+    return passWrap?.call(build);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
+    TResult Function()? loading,
+    TResult Function(Widget widget)? widget,
+    TResult Function()? none,
+    TResult Function(GuardCheckResult Function(BuildContext, WidgetRef) action)?
+        action,
+    TResult Function(dynamic error, StackTrace? stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (passWrap != null) {
+      return passWrap(build);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
+    required TResult Function(GuardCheckResultLoading value) loading,
+    required TResult Function(_WidgetResult value) widget,
+    required TResult Function(_NoneResult value) none,
+    required TResult Function(_ActionResult value) action,
+    required TResult Function(GuardCheckResultError value) error,
+  }) {
+    return passWrap(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
+    TResult Function(GuardCheckResultLoading value)? loading,
+    TResult Function(_WidgetResult value)? widget,
+    TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
+    TResult Function(GuardCheckResultError value)? error,
+  }) {
+    return passWrap?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
+    TResult Function(GuardCheckResultLoading value)? loading,
+    TResult Function(_WidgetResult value)? widget,
+    TResult Function(_NoneResult value)? none,
+    TResult Function(_ActionResult value)? action,
+    TResult Function(GuardCheckResultError value)? error,
+    required TResult orElse(),
+  }) {
+    if (passWrap != null) {
+      return passWrap(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GuardCheckResultPassWrap extends GuardCheckResult {
+  const factory _GuardCheckResultPassWrap(
+          final Widget Function({required Widget child}) build) =
+      _$_GuardCheckResultPassWrap;
+  const _GuardCheckResultPassWrap._() : super._();
+
+  Widget Function({required Widget child}) get build;
+  @JsonKey(ignore: true)
+  _$$_GuardCheckResultPassWrapCopyWith<_$_GuardCheckResultPassWrap>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -279,6 +467,8 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -294,6 +484,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -308,6 +499,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -326,6 +518,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -339,6 +532,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -352,6 +546,7 @@ class _$GuardCheckResultLoading extends GuardCheckResultLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -437,6 +632,8 @@ class _$_WidgetResult extends _WidgetResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -452,6 +649,7 @@ class _$_WidgetResult extends _WidgetResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -466,6 +664,7 @@ class _$_WidgetResult extends _WidgetResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -484,6 +683,7 @@ class _$_WidgetResult extends _WidgetResult {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -497,6 +697,7 @@ class _$_WidgetResult extends _WidgetResult {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -510,6 +711,7 @@ class _$_WidgetResult extends _WidgetResult {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -576,6 +778,8 @@ class _$_NoneResult extends _NoneResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -591,6 +795,7 @@ class _$_NoneResult extends _NoneResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -605,6 +810,7 @@ class _$_NoneResult extends _NoneResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -623,6 +829,7 @@ class _$_NoneResult extends _NoneResult {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -636,6 +843,7 @@ class _$_NoneResult extends _NoneResult {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -649,6 +857,7 @@ class _$_NoneResult extends _NoneResult {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -733,6 +942,8 @@ class _$_ActionResult extends _ActionResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -748,6 +959,7 @@ class _$_ActionResult extends _ActionResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -762,6 +974,7 @@ class _$_ActionResult extends _ActionResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -780,6 +993,7 @@ class _$_ActionResult extends _ActionResult {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -793,6 +1007,7 @@ class _$_ActionResult extends _ActionResult {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -806,6 +1021,7 @@ class _$_ActionResult extends _ActionResult {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -910,6 +1126,8 @@ class _$GuardCheckResultError extends GuardCheckResultError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() pass,
+    required TResult Function(Widget Function({required Widget child}) build)
+        passWrap,
     required TResult Function() loading,
     required TResult Function(Widget widget) widget,
     required TResult Function() none,
@@ -925,6 +1143,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -939,6 +1158,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? pass,
+    TResult Function(Widget Function({required Widget child}) build)? passWrap,
     TResult Function()? loading,
     TResult Function(Widget widget)? widget,
     TResult Function()? none,
@@ -957,6 +1177,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuardCheckResultPass value) pass,
+    required TResult Function(_GuardCheckResultPassWrap value) passWrap,
     required TResult Function(GuardCheckResultLoading value) loading,
     required TResult Function(_WidgetResult value) widget,
     required TResult Function(_NoneResult value) none,
@@ -970,6 +1191,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,
@@ -983,6 +1205,7 @@ class _$GuardCheckResultError extends GuardCheckResultError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuardCheckResultPass value)? pass,
+    TResult Function(_GuardCheckResultPassWrap value)? passWrap,
     TResult Function(GuardCheckResultLoading value)? loading,
     TResult Function(_WidgetResult value)? widget,
     TResult Function(_NoneResult value)? none,

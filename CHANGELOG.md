@@ -1,4 +1,4 @@
-## [0.2.0] - WIP - 2022-09-11
+## [0.2.0] - 2022-09-11
 
 feat: 
 - add action check result - that aplies on next build only if guarded is still mounted

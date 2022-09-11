@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:guarded_core/guarded_core.dart';
 
 import 'guards.dart';
@@ -7,13 +8,15 @@ import 'guards.dart';
 class GuardedWidget extends GuardedWidgetBase {
   final List<GuardBase> guards;
 
+  final bool? keepOldData;
+
   @override
-  final bool keepOldDataOnLoading;
+  bool get keepOldDataOnLoading => keepOldData ?? super.keepOldDataOnLoading;
 
   const GuardedWidget(
     this.guards, {
     Key? key,
-    this.keepOldDataOnLoading = false,
+    this.keepOldData,
   }) : super(key: key);
 
   @override
@@ -54,7 +57,7 @@ Widget wrapRefGuards(
     ],
     child: GuardedWidget(
       guards,
-      keepOldDataOnLoading: keepOldDataOnLoading,
+      keepOldData: keepOldDataOnLoading,
     ),
   ));
 }
@@ -69,7 +72,7 @@ class _Wrapper extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text('_wrapper_'),
+        const Text('_wrapper_'),
         child,
       ],
     );
@@ -90,3 +93,17 @@ final resultToText = [
   ],
   <dynamic>[const GuardCheckResult.passWrap(_Wrapper.new), '_wrapper_'],
 ];
+
+void casesRunner(
+    void Function(
+  String testName,
+  GuardCheckResult result,
+  void Function() caseExpect,
+)
+        runner) {
+  for (final r in resultToText) {
+    GuardCheckResult result = r[0];
+    String text = r[1];
+    runner(text, result, () => expect(find.text(text), findsOneWidget));
+  }
+}

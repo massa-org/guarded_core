@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:guarded_core/configuration/guarded_configuration.dart';
 import 'package:guarded_core/guarded_core.dart';
 
 import 'guards.dart';
@@ -25,14 +26,11 @@ class GuardedWidget extends GuardedWidgetBase {
   }
 
   @override
-  Widget Function(GuardCheckResultError error) get guardedErrorBuilder =>
-      (error) => const Text('error');
-
-  @override
-  Widget get guardedLoadingWidget => const Text('loading');
-
-  @override
-  Widget get guardedNoneWidget => const Text('none');
+  get rawConfiguration => [
+        Guarded.loadingWidget(const Text('loading')),
+        Guarded.errorWidget(const Text('error')),
+        Guarded.noneWidget(const Text('none')),
+      ];
 
   @override
   Iterable<GuardBase> get rawGuards => guards;

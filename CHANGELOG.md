@@ -1,3 +1,9 @@
+## [0.4.0] - 2022-02-06
+
+feat:
+- change configuration injecting method (loading, none, error widget)
+- allow to define custom configuration 
+
 ## [0.3.0] - 2022-11-03
 
 deps:

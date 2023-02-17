@@ -2,31 +2,56 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'executors/guard_executors.dart';
-import 'guard_base.dart';
-import 'guard_check_result.dart';
-import 'guard_executor.dart';
+import 'package:guarded_core/configuration/guarded_configuration.dart';
+import 'package:guarded_core/guarded_core.dart';
 
 abstract class GuardedWidgetBase extends ConsumerStatefulWidget {
-  const GuardedWidgetBase({Key? key}) : super(key: key);
+  const GuardedWidgetBase({super.key});
 
   bool get keepOldDataOnLoading => false;
   GuardExecutor get executor => GuardExecutors.sequential;
-
   Widget build(BuildContext context, WidgetRef ref);
-
-  Widget get guardedLoadingWidget;
-  Widget get guardedNoneWidget;
-  Widget Function(GuardCheckResultError error) get guardedErrorBuilder;
-
   Iterable<GuardBase> get rawGuards;
+  Iterable<GuardedConfiguration> get rawConfiguration => const [];
 
   @override
-  ConsumerState<GuardedWidgetBase> createState() => _GuardedWidgetBaseState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _GuardedWidgetState();
 }
 
-class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetBase> {
+class _GuardedWidgetState extends ConsumerState<GuardedWidgetBase> {
+  @override
+  Widget build(BuildContext context) {
+    return GuardedConfigurationScope(
+      configurations: widget.rawConfiguration.toList(),
+      child: GuardedWidgetImpl(
+        build: widget.build,
+        executor: widget.executor,
+        keepOldDataOnLoading: widget.keepOldDataOnLoading,
+        rawGuards: widget.rawGuards,
+      ),
+    );
+  }
+}
+
+class GuardedWidgetImpl extends ConsumerStatefulWidget {
+  const GuardedWidgetImpl({
+    super.key,
+    required this.keepOldDataOnLoading,
+    required this.executor,
+    required this.build,
+    required this.rawGuards,
+  });
+
+  final bool keepOldDataOnLoading;
+  final GuardExecutor executor;
+  final Widget Function(BuildContext context, WidgetRef ref) build;
+  final Iterable<GuardBase> rawGuards;
+
+  @override
+  ConsumerState<GuardedWidgetImpl> createState() => _GuardedWidgetBaseState();
+}
+
+class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetImpl> {
   GuardCheckResult result = const GuardCheckResult.loading();
   int currentRunId = 0;
 
@@ -73,14 +98,14 @@ class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetBase> {
     return result.map(
       pass: (_) => widget.build(context, ref),
       wrap: (v) => v.builder(child: widget.build(context, ref)),
-      loading: (_) => widget.guardedLoadingWidget,
-      none: (_) => widget.guardedNoneWidget,
+      loading: (_) => const GuardedLoading(),
+      none: (_) => const GuardedNone(),
       widget: (v) => v.widget,
       action: (v) {
         this.result = v.action(context, ref);
         return _mapResult(this.result, context);
       },
-      error: widget.guardedErrorBuilder,
+      error: (v) => GuardedError(error: v.error, stackTrace: v.stackTrace),
     );
   }
 

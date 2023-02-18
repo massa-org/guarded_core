@@ -51,7 +51,7 @@ Widget wrapRefGuards(
 }) {
   return wrapForTest(ProviderScope(
     overrides: [
-      resultStreamProvider.overrideWithProvider(StreamProvider((_) => stream)),
+      resultStreamProvider.overrideWith((_) => stream),
     ],
     child: GuardedWidget(
       guards,

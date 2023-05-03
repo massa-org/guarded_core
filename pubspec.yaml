@@ -1,6 +1,6 @@
 name: guarded_core
 description: Core implementation of widget guards for flutter with riverpod usage
-version: 0.4.0
+version: 0.4.1
 repository: https://github.com/massa-org/guarded_core
 
 environment:

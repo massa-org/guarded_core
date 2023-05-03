@@ -1,3 +1,10 @@
+## [0.4.1] - 2022-05-03
+
+fix:
+- guarded configuration 
+- tests for guarded configuration
+- test missed provider scope
+
 ## [0.4.0] - 2022-02-06
 
 feat:

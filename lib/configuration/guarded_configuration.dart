@@ -17,7 +17,7 @@ final guardedConfigurationProvider = Provider<Map<Type, GuardedConfiguration>>(
   (ref) => {},
 );
 
-class GuardedConfigurationScope extends StatelessWidget {
+class GuardedConfigurationScope extends ConsumerWidget {
   const GuardedConfigurationScope({
     super.key,
     required this.configurations,
@@ -28,13 +28,16 @@ class GuardedConfigurationScope extends StatelessWidget {
   final Iterable<GuardedConfiguration> configurations;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     if (configurations.isEmpty) return child;
+    final parrentConfig = ref.watch(guardedConfigurationProvider);
     return ProviderScope(
       overrides: [
         guardedConfigurationProvider.overrideWithValue(
           Map.fromEntries(
-            configurations.map((e) => MapEntry(e.runtimeType, e)),
+            parrentConfig.entries.followedBy(
+              configurations.map((e) => MapEntry(e.runtimeType, e)),
+            ),
           ),
         )
       ],

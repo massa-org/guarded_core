@@ -14,10 +14,13 @@ class GuardedWidget extends GuardedWidgetBase {
   @override
   bool get keepOldDataOnLoading => keepOldData ?? super.keepOldDataOnLoading;
 
+  final Iterable<GuardedConfiguration>? config;
+
   const GuardedWidget(
     this.guards, {
     Key? key,
     this.keepOldData,
+    this.config,
   }) : super(key: key);
 
   @override
@@ -26,7 +29,9 @@ class GuardedWidget extends GuardedWidgetBase {
   }
 
   @override
-  get rawConfiguration => [
+  get rawConfiguration =>
+      config ??
+      [
         Guarded.loadingWidget(const Text('loading')),
         Guarded.errorWidget(const Text('error')),
         Guarded.noneWidget(const Text('none')),
@@ -37,11 +42,17 @@ class GuardedWidget extends GuardedWidgetBase {
 }
 
 Widget wrapForTest(Widget child) {
-  return MaterialApp(home: child);
+  return ProviderScope(child: MaterialApp(home: child));
 }
 
-Widget wrapGuards(List<GuardBase> guards) {
-  return wrapForTest(GuardedWidget(guards));
+Widget wrapGuards(
+  List<GuardBase> guards, [
+  Iterable<GuardedConfiguration>? config,
+]) {
+  return wrapForTest(GuardedWidget(
+    guards,
+    config: config,
+  ));
 }
 
 Widget wrapRefGuards(

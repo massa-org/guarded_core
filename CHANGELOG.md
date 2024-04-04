@@ -1,3 +1,8 @@
+## [0.4.2] - 2024-04-04
+
+fix: 
+- skip rebuild if value emited from guard is current result
+
 ## [0.4.1] - 2022-05-03
 
 fix:

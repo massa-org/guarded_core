@@ -72,6 +72,7 @@ class _GuardedWidgetBaseState extends ConsumerState<GuardedWidgetImpl> {
     if (widget.keepOldDataOnLoading && result is GuardCheckResultLoading) {
       return;
     }
+    if (this.result == result) return;
     this.result = result;
 
     if (!sync) {
